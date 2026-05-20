@@ -9,5 +9,17 @@
   <body>
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
-  </body>
+  <script>
+(function(){
+  var bar=document.createElement('div');
+  bar.innerHTML='<a href="https://craudiovizai.com" style="display:flex;align-items:center;gap:8px;text-decoration:none;color:#fff;font-size:13px;font-weight:600"><span style="color:#6366f1">Javari AI</span><span style="color:#374151;font-size:11px">· CR AudioViz AI · EIN 39-3646201</span></a><a href="https://craudiovizai.com/auth/signup" style="background:#6366f1;color:#000;border-radius:6px;padding:4px 14px;font-size:12px;font-weight:700;text-decoration:none">Sign Up Free →</a>';
+  bar.setAttribute('style','background:rgba(0,0,0,0.88);padding:6px 20px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:9999;font-family:system-ui');
+  document.body.prepend(bar);
+  var footer=document.createElement('div');
+  footer.innerHTML='<p style="color:#1f2937;font-size:11px;margin:0">© 2026 CR AudioViz AI, LLC — EIN: 39-3646201 · Fort Myers, Florida · <a href=\'https://craudiovizai.com\' style=\'color:#374151;text-decoration:none\'>craudiovizai.com</a></p>';
+  footer.setAttribute('style','background:#050608;border-top:1px solid rgba(255,255,255,0.05);padding:16px 24px;text-align:center');
+  document.body.append(footer);
+})();
+</script>
+</body>
 </html>

@@ -1,8 +1,8 @@
-# Absorbed from: crav-music-builder
+# Absorbed from: javari-music-builder
 ## Date: June 2026
 ## Destination: javari-music
 
-### Features transferred from crav-music-builder:
+### Features transferred from javari-music-builder:
 - Music creation tools, audio building capabilities, production features (PRODUCTION_ADDITIONS.md), smoke test suite
 
 ### Source repo status: Archived (read-only)

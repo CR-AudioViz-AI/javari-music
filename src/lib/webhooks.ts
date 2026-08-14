@@ -80,8 +80,8 @@ export async function emitWebhook(event: WebhookEvent, data: any): Promise<void>
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
-            'X-CRAV-Signature': `sha256=${signature}`,
-            'X-CRAV-Event': event,
+            'X-javari-Signature': `sha256=${signature}`,
+            'X-javari-Event': event,
           },
           body: JSON.stringify(payload),
         });

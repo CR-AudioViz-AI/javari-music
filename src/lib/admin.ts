@@ -50,7 +50,7 @@ export async function adminRetryTrack(trackId: string): Promise<void> {
   if (trackError) throw trackError;
 
   const { error: jobError } = await supabase
-    .from('jobs')
+    .from('javari_jobs')
     .update({ state: 'queued', error: null })
     .eq('track_id', trackId);
 
@@ -66,7 +66,7 @@ export async function adminFailTrack(trackId: string, reason: string): Promise<v
   if (trackError) throw trackError;
 
   const { error: jobError } = await supabase
-    .from('jobs')
+    .from('javari_jobs')
     .update({ state: 'failed', error: reason })
     .eq('track_id', trackId);
 
@@ -108,7 +108,7 @@ export async function getAdminStats(): Promise<AdminStats> {
   const [tracksResult, usersResult, creditsResult, errorsResult] = await Promise.all([
     supabase.from('tracks').select('status, provider'),
     supabase.from('users').select('id'),
-    supabase.from('credit_ledger').select('delta').gt('delta', 0),
+    supabase.from('credits_ledger').select('delta').gt('delta', 0),
     supabase
       .from('tracks')
       .select('id, created_at')

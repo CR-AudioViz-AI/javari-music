@@ -116,7 +116,7 @@ export async function createJob(
   payload: any
 ): Promise<Job> {
   const { data, error } = await supabase
-    .from('jobs')
+    .from('javari_jobs')
     .insert({
       track_id: trackId,
       provider,
@@ -131,7 +131,7 @@ export async function createJob(
 }
 
 export async function updateJob(id: string, updates: Partial<Job>): Promise<Job> {
-  const { data, error } = await supabase.from('jobs').update(updates).eq('id', id).select().single();
+  const { data, error } = await supabase.from('javari_jobs').update(updates).eq('id', id).select().single();
 
   if (error) throw error;
   return data;
@@ -139,7 +139,7 @@ export async function updateJob(id: string, updates: Partial<Job>): Promise<Job>
 
 export async function getTrackJobs(trackId: string): Promise<Job[]> {
   const { data, error } = await supabase
-    .from('jobs')
+    .from('javari_jobs')
     .select('*')
     .eq('track_id', trackId)
     .order('created_at', { ascending: false });
@@ -154,7 +154,7 @@ export async function addCredits(
   reason: string,
   meta?: any
 ): Promise<void> {
-  const { error: ledgerError } = await supabase.from('credit_ledger').insert({
+  const { error: ledgerError } = await supabase.from('credits_ledger').insert({
     user_id: userId,
     delta,
     reason,
@@ -197,7 +197,7 @@ export async function deductCredits(
 
 export async function getCreditHistory(userId: string): Promise<CreditTransaction[]> {
   const { data, error } = await supabase
-    .from('credit_ledger')
+    .from('credits_ledger')
     .select('*')
     .eq('user_id', userId)
     .order('created_at', { ascending: false });

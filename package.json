@@ -9,10 +9,10 @@
     "lint": "eslint .",
     "preview": "vite preview",
     "typecheck": "tsc --noEmit -p tsconfig.app.json",
-    "prebuild": "node scripts/audit-route-auth.mjs"
+    "prebuild": "node scripts/check-sdk-install.mjs && node scripts/audit-route-auth.mjs"
   },
   "dependencies": {
-    "@craudioviz/platform-sdk": "git+https://github.com/CR-AudioViz-AI/platform-sdk.git",
+    "@craudioviz/platform-sdk": "git+https://github.com/CR-AudioViz-AI/platform-sdk.git#a36f4cdcc52a15939881e0b8558e42878b23a63b",
     "@supabase/supabase-js": "^2.101.1",
     "ky": "^1.14.3",
     "lucide-react": "^0.577.0",
